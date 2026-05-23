@@ -1,0 +1,7 @@
+{
+  "records_path": "data/experiment_records_example.jsonl",
+  "static_path": "data/static-example.jsonl",
+  "prices_path": "data/price-data-example.jsonl",
+  "agent_model": "gpt-5-mini",
+  "llm_call_success_rate": 0.98
+}

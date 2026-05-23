@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>gpt-5.2-100000-daily-llm-analysis.md</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      max-width: 980px;
+      margin: 32px auto;
+      padding: 0 22px 40px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 {
+      line-height: 1.25;
+    }
+    h2 {
+      margin-top: 1.8em;
+      padding-top: 0.2em;
+      border-top: 1px solid #e8e8e8;
+    }
+    h3 {
+      margin-top: 1.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0 18px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    blockquote {
+      margin: 16px 0;
+      padding: 10px 14px;
+      border-left: 4px solid #89a7d8;
+      background: rgba(137, 167, 216, 0.08);
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      padding: 12px;
+      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 12px 0 26px;
+      align-items: start;
+    }
+    .chart-grid.compact {
+      justify-items: center;
+    }
+    .chart-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 12px 0 26px;
+    }
+    .chart-item {
+      margin: 0;
+      text-align: center;
+    }
+    .chart-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .chart-grid.compact .chart-item {
+      max-width: 280px;
+      width: 100%;
+    }
+    .chart-item figcaption {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #555;
+    }
+    @media (max-width: 760px) {
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-grid.compact .chart-item {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1 id="llm-analysis">LLM Analysis</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<ul>
+<li>Gross profit for the period was $505.76 (0.506% on $100k); after operating costs ($259.12) the net economic outcome is $246.64 (0.247%).  </li>
+<li>The run captured broad market gains (market effect +$1,719.91) but suffered a large negative asset-selection drag (−$1,309.80); timing added only +$95.65 (Figures 1–2).  </li>
+<li>Operating costs consume ~51% of gross profit (cost_to_gross_profit_ratio = 0.512). The static data subscription ($200) is the largest single cost share (77% of reported operating cost) but execution-related opportunity cost ($460.98) and latency are the most actionable drains. See Figures 3–4 and execution metrics.  </li>
+<li>Net timing value (timing − dynamic cost) is small but positive (+$36.53); this means trading skill produced economic value only after careful cost control.  </li>
+<li>Primary limits: (A) negative selection performance (model/stock choice) and (B) execution/infrastructure overhead (latency, slippage, token intensity). Remediations should target system architecture and model refinement first.</li>
+</ul>
+<h2 id="part-1-trading-performance-analysis">Part 1. Trading Performance Analysis</h2>
+<h3 id="11-outcome-snapshot">1.1 Outcome Snapshot</h3>
+<ul>
+<li>Absolute P&amp;L: gross profit = $505.76; net outcome after static + dynamic costs = $246.64. This equals a 0.506% gross return and ~0.247% net return on $100k across the 2025-12-01 → 2026-01-30 window. (Financial report section 3; Table A/B.)</li>
+<li>Cost burden: total operating cost = $259.12 (static $200 + dynamic $59.12). Costs equal ~51% of gross profit (cost_to_gross_profit_ratio = 0.512).  </li>
+<li>Economic value: the run produced a positive net economic outcome ($246.64) but failed to capture the market rally: benchmark SPY return = 1.72% (market effect +$1,719.91) vs strategy return 0.506% (v_end $100,505.76). The strategy therefore produced economic value in isolation but underperformed the market benchmark.</li>
+</ul>
+<h3 id="12-profit-attribution-analysis">1.2 Profit Attribution Analysis</h3>
+<ul>
+<li>Reference: Figure 1 and Figure 2 (profit attribution views for full cash and invested-only). Both views are consistent with numbers below.</li>
+</ul>
+<div class="chart-grid"><figure class="chart-item"><img src="charts/profit_breakdown_full.png" alt="Figure 1: Profit Attribution — Full Cash Benchmark" /><figcaption>Figure 1: Profit Attribution — Full Cash Benchmark</figcaption></figure><figure class="chart-item"><img src="charts/profit_breakdown_invested.png" alt="Figure 2: Profit Attribution — Invested Cash Only" /><figcaption>Figure 2: Profit Attribution — Invested Cash Only</figcaption></figure></div>
+
+<ul>
+<li>Market effect: +$1,719.91 (full-cash view). This is the dominant contributor and indicates the period’s broad-market return was positive. (See Figure 1.)</li>
+<li>Selection effect: −$1,309.80. The chosen basket underperformed what a static buy-and-hold of the initial holdings would have returned, a large negative drag. (See Figure 1 and Figure 2.)</li>
+<li>Timing effect: +$95.65. The active timing decisions added a modest positive value relative to the initial buy-and-hold baseline. (Figures 1–2 show the small timing bar.)</li>
+<li>Did the strategy outperform buy-and-hold? Yes versus the static initial-hold portfolio: timing added +$95.65 so strategy &gt; initial holdings. No versus the market benchmark: the strategy captured far less of the market move and therefore underperformed SPY over the period.</li>
+<li>Interpretation: gross trading skill is mixed — timing skill exists (small but positive), while asset selection skill materially harmed performance. The overall portfolio result is dominated by market exposure rather than active alpha.</li>
+</ul>
+<h3 id="13-cost-structure-analysis">1.3 Cost Structure Analysis</h3>
+<ul>
+<li>Reference: Figure 3 (Operating Cost Composition) and Figure 4 (Excluding Subscription).</li>
+<li>Static vs dynamic: static (data subscription) = $200 (≈77% of reported operating cost); dynamic (commissions, tokens, infra, uncertain) = $59.12 (≈23%). (Figure 3 displays the dominance of the static slice.)</li>
+<li>When excluding the subscription (Figure 4), dynamic costs are visible and show the remaining execution &amp; token burden.</li>
+<li>Cost acceptability: at current profit levels (gross $505.76), the static subscription alone consumes ~40% of gross profit and combined costs consume ~51%. This makes the margin thin — the current cost structure is high relative to realized gross profit and therefore precarious.</li>
+<li>Most actionable cost driver: execution-related losses (opportunity cost $460.98, slippage and latency) and token/infra costs embedded in dynamic costs. While the subscription is the largest single-dollar item, it is fixed; the marginal, actionable costs that directly erode timing alpha are the dynamic/execution items (dynamic_cost_to_timing_ratio = 0.618 indicates dynamic costs consume ~62% of timing benefit).</li>
+</ul>
+<h3 id="14-portfolio-timeline-and-risk-signals">1.4 Portfolio Timeline and Risk Signals</h3>
+<ul>
+<li>Reference: Figure 5 (Portfolio Value vs Cumulative Dynamic Cost) and Figure 6 (same excluding monthly subscription).</li>
+</ul>
+<div class="chart-stack"><figure class="chart-item"><img src="charts/performance_line.png" alt="Figure 5: Portfolio Value vs Cumulative Dynamic Cost" /><figcaption>Figure 5: Portfolio Value vs Cumulative Dynamic Cost</figcaption></figure><figure class="chart-item"><img src="charts/performance_line_no_monthly.png" alt="Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)" /><figcaption>Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)</figcaption></figure></div>
+
+<ul>
+<li>Shape and path-dependence: Figures 5–6 show portfolio value evolving alongside steadily accumulating dynamic costs. The profit curve is shallow: small net gains must persist against an increasing cost baseline. Because timing benefit is modest (+$95.65) and dynamic costs continue to accumulate, profitability is path-dependent and fragile — a few adverse trades or slightly higher slippage would flip net outcome negative.</li>
+<li>Fragility evidence: net timing outcome (timing − dynamic cost) is only +$36.53. That margin is small relative to volatility and opportunity cost ($460.98), indicating that realized profitability can be erased by execution shortfalls or a single poor selection stretch.</li>
+</ul>
+<h3 id="15-execution-quality-and-llm-efficiency">1.5 Execution Quality and LLM Efficiency</h3>
+<ul>
+<li>Latency and opportunity cost:</li>
+<li>avg_latency_per_trade_ms = 23,495 ms (≈23.5 s); avg_daily_llm_latency_ms = 67,870.78 ms (≈67.9 s). These are materially high for a reactive trading environment and contribute to opportunity cost. (Financial report §6.)</li>
+<li>Opportunity cost (Decision Price − Execution Price) = $460.98. This is nearly as large as gross profit ($505.76) and larger than dynamic costs ($59.12), which implies execution delays and slippage are the primary destroyers of potential alpha.</li>
+<li>Token intensity and expense:</li>
+<li>avg_daily_input_tokens ≈ 91,324 and avg_daily_output_tokens ≈ 3,072 (high overall token volume). Token costs are captured within dynamic cost and contribute to the ongoing expense base.</li>
+<li>Trade efficiency (slippage): slippage_avg = −1.229 USD; slippage_pct_avg = −0.002146 (~−0.21%). This per-trade slippage aggregated across 67 trades materially reduces realized gains.</li>
+<li>Attribution of failings:</li>
+<li>Market exposure produced gains (market effect); model/selection choices produced the negative selection drag. These are strategy-level effects.</li>
+<li>The large opportunity cost, high latency, and token intensity are system-level issues caused by architecture/pipeline and prompt design, not by market exposure. Thus two separate interventions are required: model/selection fixes and architecture/execution fixes.</li>
+</ul>
+<h2 id="part-2-trading-system-diagnosis">Part 2. Trading System Diagnosis</h2>
+<h3 id="21-system-diagnosis">2.1 System Diagnosis</h3>
+<ul>
+<li>The system is primarily limited by two factors:</li>
+<li>Execution/infrastructure overhead (architecture): high latency, high opportunity cost, nontrivial slippage, and heavy token usage are materially eating timing gains and gross profit.</li>
+<li>Asset selection model quality: a large negative asset-selection effect (−$1,309.80) indicates the model or selection process is choosing weights/stock moments that underperform static holdings.</li>
+<li>Trading cadence (trade frequency) is moderate (67 trades over ~41 recorded days), so frequency itself is not extreme; the issue is that the existing cadence and execution pipeline do not scale to the realized token/latency cost profile.</li>
+<li>In short: architecture/execution is the first-order limit to converting timing skill into net economic value; model/selection is the second-order limit because it produced a significant negative drag.</li>
+</ul>
+<h3 id="22-root-causes-evidence-backed">2.2 Root Causes (evidence-backed)</h3>
+<ol>
+<li>Negative asset selection bias (evidence: selection effect = −$1,309.80; Figures 1–2). The model’s stock choices or sizing systematically underperformed the static allocation.</li>
+<li>High execution opportunity cost driven by latency (evidence: opportunity cost $460.98; avg_latency_per_trade_ms ≈ 23.5 s; avg_daily_llm_latency_ms ≈ 67.9 s; slippage_pct_avg ≈ −0.21%). This materially reduces realized timing gains.</li>
+<li>Excess token usage and prompt inefficiency (evidence: avg_daily_input_tokens ≈ 91k; avg_daily_output_tokens ≈ 3k; token/infra are part of dynamic cost). Token cost contributes to dynamic cost and reduces net alpha per decision.</li>
+<li>Fixed-cost sensitivity (evidence: static subscription $200 = 77% of reported operating cost; cost_to_gross_profit_ratio ≈ 0.51). The small capital base magnifies the impact of fixed subscription fees on net return.</li>
+<li>Execution policy / order placement design (evidence: slippage and opportunity cost numbers). The order routing and execution strategy appear suboptimal (market orders or delayed execution), causing execution price degradation.</li>
+</ol>
+<h3 id="23-top-recommended-actions">2.3 Top Recommended Actions</h3>
+<ol>
+<li>Priority 1 — Reduce execution latency and opportunity cost (Lever: 4 — system / agent / tool architecture)  </li>
+<li>Expected impact: Recover a large fraction of the $460.98 opportunity cost and substantially reduce slippage; this would improve net timing outcome and free up most of the dynamic timing margin. Realistic upside: halve opportunity cost within 2–4 weeks of infra changes.  </li>
+<li>Implementation idea: implement an asynchronous decision→order pipeline with pre-signed orders, colocated broker/exchange connectivity or lower-latency execution endpoints, batch/smaller prompt sizes to reduce LLM latency, and integrate limit/marketable-limit order logic to reduce immediate slippage. Instrument decision vs execution timestamps tightly and set SLOs (e.g., decision→order &lt;1s for liquid equities).</li>
+<li>Priority 2 — Fix asset selection bias (Lever: 2 — model choice)  </li>
+<li>Expected impact: Reduce or eliminate the −$1,309.80 selection drag and convert market exposure into positive alpha. Even a partial correction (recovering 30–50% of selection drag) would materially improve gross profit.  </li>
+<li>Implementation idea: run a focused model-retraining / backtest experiment: (a) add a validation set that measures selection effect specifically, (b) introduce regularization or constraints to avoid over/underweighting high-dispersion names, (c) add an ensemble or classical signal overlay (momentum/quality filters) and conservative sizing rules to limit worst-case selection errors. Use a rolling backtest and A/B tests comparing current policy vs variant.</li>
+<li>Priority 3 — Right-size trading cadence and capital base (Lever: 1 and 3 — starting capital &amp; trading frequency)  </li>
+<li>Expected impact: Reduce per-dollar fixed-cost drag and improve cost amortization; reduce needless turnover that generates token and execution cost. Short-term: change cadence to lower turnover until architecture is fixed. Medium-term: consider expanding starting capital to dilute fixed subscription cost if strategy scale is viable.  </li>
+<li>Implementation idea: (a) Reduce target rebalancing frequency and aggregate small signals into fewer executions; (b) evaluate increasing portfolio notional in a controlled test so fixed subscription cost per $k decreases; (c) implement minimum trade-size thresholds to avoid small trades that incur similar slippage but lower marginal benefit.</li>
+</ol>
+<h3 id="24-quick-wins-vs-structural-changes">2.4 Quick Wins vs Structural Changes</h3>
+<p>Quick Wins
+- Trim prompt size and caching: reduce avg_daily_input_tokens by caching recent state and reusing embeddings where possible (immediate token-cost savings). (Maps to Lever 4.)
+- Switch to limit/marketable-limit orders and simple pre-checks to cut slippage and opportunity cost while infra improvements are implemented. (Lever 4.)
+- Pause or renegotiate the data subscription if usage is low relative to benefit, or shift to a lower-cost plan while testing model changes. (Lever 1 / cost control.)
+- Introduce minimum trade-size and batching to reduce frequent tiny executions that increase slippage and token rounds. (Lever 3.)</p>
+<p>Structural Changes
+- Re-architect decision pipeline for sub-second decision→order latency (persistent connections, pre-authenticated orders, colocated execution). (Lever 4 — higher implementation cost but largest ROI on execution loss.)
+- Retrain or replace selection model: add loss functions or risk controls explicitly targeting selection-effect reduction (e.g., penalize positions that historically caused drawdown vs benchmark). (Lever 2.)
+- Adopt a staged productionization plan: offline selection model experiments → shadow execution → small live A/B test with improved execution stack before full rollout. (Cross-lever: 2 + 4.)
+- Reconsider business economics: set a minimum AUM/starting capital threshold or fee-sharing model to amortize fixed subscription and justify token usage (Lever 1).</p>
+<h2 id="appendix-key-metrics-snapshot">Appendix. Key Metrics Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial cash</td>
+<td style="text-align: right;">$100,000.00</td>
+<td>Base capital for return calculations</td>
+</tr>
+<tr>
+<td>Total portfolio value (end)</td>
+<td style="text-align: right;">$100,505.76</td>
+<td>Strategy final NAV (gross)</td>
+</tr>
+<tr>
+<td>Gross profit</td>
+<td style="text-align: right;">$505.76</td>
+<td>Absolute gross trading gain (v_end − v₀)</td>
+</tr>
+<tr>
+<td>Static cost (subscription)</td>
+<td style="text-align: right;">$200.00</td>
+<td>Largest single reported cost; fixed</td>
+</tr>
+<tr>
+<td>Dynamic cost</td>
+<td style="text-align: right;">$59.12</td>
+<td>Commission/tokens/infra — actionable</td>
+</tr>
+<tr>
+<td>Total cost</td>
+<td style="text-align: right;">$259.12</td>
+<td>Sum of static + dynamic; used to compute net outcome</td>
+</tr>
+<tr>
+<td>Net outcome</td>
+<td style="text-align: right;">$246.64</td>
+<td>Real economic profit after reported costs</td>
+</tr>
+<tr>
+<td>Market effect</td>
+<td style="text-align: right;">$1,719.91</td>
+<td>Market-driven gain; explains majority of gross</td>
+</tr>
+<tr>
+<td>Selection effect</td>
+<td style="text-align: right;">−$1,309.80</td>
+<td>Large negative driver — needs model fix</td>
+</tr>
+<tr>
+<td>Timing effect</td>
+<td style="text-align: right;">$95.65</td>
+<td>Active timing alpha (small positive)</td>
+</tr>
+<tr>
+<td>Net timing outcome</td>
+<td style="text-align: right;">$36.53</td>
+<td>Timing minus dynamic cost; small margin</td>
+</tr>
+<tr>
+<td>Opportunity cost</td>
+<td style="text-align: right;">$460.98</td>
+<td>Loss from decision→execution gap; actionable</td>
+</tr>
+<tr>
+<td>avg_latency_per_trade_ms</td>
+<td style="text-align: right;">23,495.44 ms</td>
+<td>Per-trade latency — contributes to opportunity cost</td>
+</tr>
+<tr>
+<td>avg_daily_llm_latency_ms</td>
+<td style="text-align: right;">67,870.78 ms</td>
+<td>Daily LLM delay and throughput constraint</td>
+</tr>
+<tr>
+<td>avg_daily_input_tokens</td>
+<td style="text-align: right;">91,323.76</td>
+<td>High token consumption → dynamic cost driver</td>
+</tr>
+<tr>
+<td>avg_daily_output_tokens</td>
+<td style="text-align: right;">3,072.05</td>
+<td>Output token volume (billing relevant)</td>
+</tr>
+<tr>
+<td>trade_count (period)</td>
+<td style="text-align: right;">67</td>
+<td>Trading activity level (turnover)</td>
+</tr>
+<tr>
+<td>cost_to_gross_profit_ratio</td>
+<td style="text-align: right;">0.5123</td>
+<td>~51% of gross profit consumed by costs</td>
+</tr>
+</tbody>
+</table>
+<p>Notes on evidence strength
+- Attribution values, costs, latency, token counts, and opportunity cost are direct from the supplied financial report and experiment summary and cited above.<br>
+- Visual inferences about the shape and fragility of the time series rely on Figures 5–6; I avoided specific intra-period drawdown claims because the available data does not include per-day drawdown tables.</p>
+</body>
+</html>
