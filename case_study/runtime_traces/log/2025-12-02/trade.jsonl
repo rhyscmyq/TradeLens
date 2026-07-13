@@ -1,0 +1,6 @@
+{"trade": {"decision_type": "BUY", "ticker": "MSFT", "analysis_price": 486.74, "execution_price": 486.715, "quantity": 200, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.492Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "GOOG", "analysis_price": 315.12, "execution_price": 316.9, "quantity": 220, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.527Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "AMZN", "analysis_price": 233.88, "execution_price": 235.005, "quantity": 300, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.558Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "NVDA", "analysis_price": 179.92, "execution_price": 181.76, "quantity": 500, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.602Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "META", "analysis_price": 640.87, "execution_price": 642.34, "quantity": 140, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.632Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "AVGO", "analysis_price": 386.08, "execution_price": 388.31, "quantity": 140, "timestamp": {"analysis_time": "2026-01-31T09:00:45.168Z", "decision_time": "2026-01-31T09:01:02.667Z"}}}

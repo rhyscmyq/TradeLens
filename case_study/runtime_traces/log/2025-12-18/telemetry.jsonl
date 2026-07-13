@@ -1,0 +1,16 @@
+{"llm": {"model": "gpt-5.2", "input_tokens": 1685, "output_tokens": 240, "cached_tokens": 0, "latency_ms": 2448}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2424, "output_tokens": 134, "cached_tokens": 1792, "latency_ms": 1624}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2609, "output_tokens": 23, "cached_tokens": 2432, "latency_ms": 991}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2645, "output_tokens": 23, "cached_tokens": 2560, "latency_ms": 1105}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2681, "output_tokens": 25, "cached_tokens": 2560, "latency_ms": 1172}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2719, "output_tokens": 25, "cached_tokens": 2560, "latency_ms": 1096}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2757, "output_tokens": 27, "cached_tokens": 2688, "latency_ms": 1008}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2797, "output_tokens": 25, "cached_tokens": 2688, "latency_ms": 1141}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2835, "output_tokens": 132, "cached_tokens": 2688, "latency_ms": 1858}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3015, "output_tokens": 26, "cached_tokens": 2816, "latency_ms": 1099}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3054, "output_tokens": 26, "cached_tokens": 2944, "latency_ms": 1130}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3093, "output_tokens": 26, "cached_tokens": 2944, "latency_ms": 1038}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3132, "output_tokens": 27, "cached_tokens": 3072, "latency_ms": 1091}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3176, "output_tokens": 24, "cached_tokens": 3072, "latency_ms": 1028}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3213, "output_tokens": 565, "cached_tokens": 3072, "latency_ms": 6228}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 41835, "output_tokens": 1348, "cached_tokens": 37888, "latency_ms": 26022}, "tool_calls": []}

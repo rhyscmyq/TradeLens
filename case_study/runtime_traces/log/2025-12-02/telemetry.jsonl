@@ -1,0 +1,4 @@
+{"llm": {"model": "gpt-5.2", "input_tokens": 1679, "output_tokens": 298, "cached_tokens": 0, "latency_ms": 14003}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2618, "output_tokens": 127, "cached_tokens": 0, "latency_ms": 1688}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3241, "output_tokens": 518, "cached_tokens": 0, "latency_ms": 7031}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 7538, "output_tokens": 943, "cached_tokens": 0, "latency_ms": 24559}, "tool_calls": []}

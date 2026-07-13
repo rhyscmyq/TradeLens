@@ -1,0 +1,3 @@
+{"trade": {"decision_type": "SELL", "ticker": "META", "analysis_price": 668.73, "execution_price": 737.43, "quantity": 20, "timestamp": {"analysis_time": "2026-01-31T09:17:33.722Z", "decision_time": "2026-01-31T09:18:09.134Z"}}}
+{"trade": {"decision_type": "SELL", "ticker": "MSFT", "analysis_price": 481.63, "execution_price": 439.99, "quantity": 10, "timestamp": {"analysis_time": "2026-01-31T09:17:33.722Z", "decision_time": "2026-01-31T09:18:10.551Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "NVDA", "analysis_price": 191.52, "execution_price": 191.34, "quantity": 75, "timestamp": {"analysis_time": "2026-01-31T09:17:33.722Z", "decision_time": "2026-01-31T09:18:11.905Z"}}}

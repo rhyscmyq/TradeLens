@@ -1,0 +1,2 @@
+{"trade": {"decision_type": "SELL", "ticker": "AVGO", "analysis_price": 347.62, "execution_price": 354.74, "quantity": 9, "timestamp": {"analysis_time": "2026-01-31T09:10:37.310Z", "decision_time": "2026-01-31T09:10:52.066Z"}}}
+{"trade": {"decision_type": "SELL", "ticker": "AMZN", "analysis_price": 226.5, "execution_price": 228.84, "quantity": 10, "timestamp": {"analysis_time": "2026-01-31T09:10:37.310Z", "decision_time": "2026-01-31T09:10:53.272Z"}}}

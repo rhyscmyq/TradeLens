@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>gpt-5.2-500000-daily-financial-report.md</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      line-height: 1.25;
+    }
+    h3 {
+      margin-top: 1.5em;
+      font-size: 1.05rem;
+      color: #333;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    .report-figure-grid {
+      display: grid;
+      gap: 18px;
+      margin: 12px 0 24px;
+      align-items: start;
+      justify-items: center;
+    }
+    .report-figure-grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .report-figure {
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      max-width: 280px;
+    }
+    .report-figure figcaption {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #555;
+    }
+    img.report-chart {
+      max-width: min(720px, 100%);
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 8px auto 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+    }
+    h3 + p > img.report-chart,
+    h3 + img.report-chart {
+      margin-top: 4px;
+    }
+    img.report-chart-compact {
+      max-width: min(260px, 100%);
+      margin: 0 auto;
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      padding: 12px;
+      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    @media (max-width: 760px) {
+      .report-figure-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1 id="financial-report">Financial Report</h1>
+<h2 id="1-trading-configuration">1. Trading Configuration</h2>
+<p>Trading Period:
+2025-12-01 - 2026-01-30</p>
+<p>Trading Model / Strategy:
+gpt-5.2</p>
+<p>Assets:
+AMZN, AVGO, GOOG, META, MSFT, NVDA</p>
+<h2 id="2-asset-portfolio-state">2. Asset &amp; Portfolio State</h2>
+<p>Initial Cash:
+500000.00</p>
+<p>Current Cash:
+10095.87</p>
+<p>Positions:
+- AMZN: 290
+- AVGO: 175
+- GOOG: 220
+- META: 120
+- MSFT: 240
+- NVDA: 512</p>
+<p>Total Position Value:
+491926.62</p>
+<p>Total Portfolio Value:
+502022.49</p>
+<h2 id="3-performance">3. Performance</h2>
+<p>Return / Profit:
+2022.49</p>
+<h3 id="figure-1-profit-attribution-full-cash-benchmark">Figure 1. Profit Attribution — Full Cash Benchmark</h3>
+<p><img class="report-chart" alt="Figure 1: Profit Attribution — Full Cash Benchmark" src="charts/profit_breakdown_full.png"></p>
+<h3 id="figure-2-profit-attribution-invested-cash-only">Figure 2. Profit Attribution — Invested Cash Only</h3>
+<p><img class="report-chart" alt="Figure 2: Profit Attribution — Invested Cash Only" src="charts/profit_breakdown_invested.png"></p>
+<h2 id="31-profit-breakdown-market-selection-timing">3.1 Profit Breakdown (market / selection / timing)</h2>
+<p>Benchmark Symbol: SPY
+Benchmark Available: True
+Benchmark Return: 1.72%</p>
+<p>v0 (Initial Cash):
+500000.00</p>
+<p>v_market (Benchmark Final Value):
+508599.53</p>
+<p>v_static (Initial Holdings Buy&amp;Hold Final Value):
+507685.30</p>
+<p>v_end (Strategy Final Value):
+502022.49</p>
+<p>Market Effect:
+8599.53</p>
+<p>Asset Selection Effect:
+-914.23</p>
+<p>Timing Effect:
+-5662.80</p>
+<p>Total Profit:
+2022.49</p>
+<p>Initial Holdings (first build day, post-trade):
+AMZN:300, AVGO:140, GOOG:220, META:140, MSFT:200, NVDA:500</p>
+<h2 id="32-financial-statement-profit-loss-style">3.2 Financial Statement (Profit &amp; Loss Style)</h2>
+<p>Two attribution views: <strong>full initial cash</strong> tracks the whole portfolio against the benchmark; <strong>invested-only</strong> removes idle cash after the first build day when applying market moves.</p>
+<h3 id="table-a-full-cash-market-benchmark">Table A — Full Cash / Market Benchmark</h3>
+<p>Benchmark: <strong>SPY</strong> | Mode: <code>full_cash</code> | Benchmark return: 1.72%</p>
+<table>
+<thead>
+<tr>
+<th>Line item</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial capital (v₀)</td>
+<td style="text-align: right;">500,000.00</td>
+</tr>
+<tr>
+<td>Benchmark portfolio at end (v_market)</td>
+<td style="text-align: right;">508,599.53</td>
+</tr>
+<tr>
+<td>Buy &amp; hold portfolio at end (v_static)</td>
+<td style="text-align: right;">507,685.30</td>
+</tr>
+<tr>
+<td>Strategy portfolio at end (v_end)</td>
+<td style="text-align: right;">502,022.49</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td><strong>Profit attribution</strong></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Market effect</td>
+<td style="text-align: right;">8,599.53</td>
+</tr>
+<tr>
+<td>Asset selection effect</td>
+<td style="text-align: right;">-914.23</td>
+</tr>
+<tr>
+<td>Timing effect</td>
+<td style="text-align: right;">-5,662.80</td>
+</tr>
+<tr>
+<td><strong>Total profit (gross)</strong></td>
+<td style="text-align: right;"><strong>2,022.49</strong></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Invested cash (excl. idle cash after day 1)</td>
+<td style="text-align: right;">472,733.50</td>
+</tr>
+<tr>
+<td>Cash after first build day</td>
+<td style="text-align: right;">27,266.50</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-b-invested-cash-only-proportional-to-deployed-capital">Table B — Invested Cash Only (Proportional to Deployed Capital)</h3>
+<p>Benchmark: <strong>SPY</strong> | Mode: <code>invested_only</code> | Benchmark return: 1.72%</p>
+<table>
+<thead>
+<tr>
+<th>Line item</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial capital (v₀)</td>
+<td style="text-align: right;">500,000.00</td>
+</tr>
+<tr>
+<td>Benchmark portfolio at end (v_market)</td>
+<td style="text-align: right;">508,130.57</td>
+</tr>
+<tr>
+<td>Buy &amp; hold portfolio at end (v_static)</td>
+<td style="text-align: right;">507,685.30</td>
+</tr>
+<tr>
+<td>Strategy portfolio at end (v_end)</td>
+<td style="text-align: right;">502,022.49</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td><strong>Profit attribution</strong></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Market effect</td>
+<td style="text-align: right;">8,130.57</td>
+</tr>
+<tr>
+<td>Asset selection effect</td>
+<td style="text-align: right;">-445.27</td>
+</tr>
+<tr>
+<td>Timing effect</td>
+<td style="text-align: right;">-5,662.80</td>
+</tr>
+<tr>
+<td><strong>Total profit (gross)</strong></td>
+<td style="text-align: right;"><strong>2,022.49</strong></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Invested cash (excl. idle cash after day 1)</td>
+<td style="text-align: right;">472,733.50</td>
+</tr>
+<tr>
+<td>Cash after first build day</td>
+<td style="text-align: right;">27,266.50</td>
+</tr>
+</tbody>
+</table>
+<h3 id="consolidated-net-outcome-two-views">Consolidated Net Outcome (two views)</h3>
+<table>
+<thead>
+<tr>
+<th>Line item</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Portfolio level</strong></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Gross profit (v_end − v₀)</td>
+<td style="text-align: right;">2,022.49</td>
+</tr>
+<tr>
+<td>Static cost (data subscription)</td>
+<td style="text-align: right;">-200.00</td>
+</tr>
+<tr>
+<td>Dynamic cost (commission + token + infra + uncertain)</td>
+<td style="text-align: right;">-40.01</td>
+</tr>
+<tr>
+<td>Total operating cost</td>
+<td style="text-align: right;">-240.01</td>
+</tr>
+<tr>
+<td><strong>Net economic outcome (gross − total cost)</strong></td>
+<td style="text-align: right;"><strong>1,782.48</strong></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td><strong>Execution / timing layer</strong></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Timing effect (vs initial buy&amp;hold)</td>
+<td style="text-align: right;">-5,662.80</td>
+</tr>
+<tr>
+<td>Dynamic cost (same as above)</td>
+<td style="text-align: right;">-40.01</td>
+</tr>
+<tr>
+<td><strong>Net timing outcome (timing − dynamic cost)</strong></td>
+<td style="text-align: right;"><strong>-5,702.82</strong></td>
+</tr>
+<tr>
+<td>## 3.3 Risk &amp; Trading Metrics</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>Portfolio-level risk and trading statistics derived from daily portfolio replay.</p>
+<p><em>Note: Sample length is sufficient for basic risk statistics.</em></p>
+<h3 id="return-risk">Return &amp; Risk</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total return</td>
+<td style="text-align: right;">0.40%</td>
+</tr>
+<tr>
+<td>Annualized return</td>
+<td style="text-align: right;">2.58%</td>
+</tr>
+<tr>
+<td>Sharpe ratio (rf=4.00%)</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr>
+<td>Annualized volatility</td>
+<td style="text-align: right;">15.28%</td>
+</tr>
+<tr>
+<td>Max drawdown</td>
+<td style="text-align: right;">5.39%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="relative-performance">Relative Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Benchmark (SPY) return</td>
+<td style="text-align: right;">1.72%</td>
+</tr>
+<tr>
+<td>Excess return vs benchmark</td>
+<td style="text-align: right;">-1.32%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trading-activity-liquidity-proxy">Trading Activity &amp; Liquidity (Proxy)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turnover (trade volume / avg portfolio value)</td>
+<td style="text-align: right;">1.13</td>
+</tr>
+<tr>
+<td>Cash ratio</td>
+<td style="text-align: right;">2.01%</td>
+</tr>
+<tr>
+<td>Invested ratio</td>
+<td style="text-align: right;">97.99%</td>
+</tr>
+<tr>
+<td>Hold ratio</td>
+<td style="text-align: right;">72.00%</td>
+</tr>
+<tr>
+<td>Trade frequency (active trade days / total days)</td>
+<td style="text-align: right;">12.20%</td>
+</tr>
+<tr>
+<td>Active trade days</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-cost-summary">4. Cost Summary</h2>
+<p>Daily actions and line-item costs: <code>gpt-5.2-500000-daily-action.txt</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Cost bucket</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static (data subscription)</td>
+<td style="text-align: right;">200.00</td>
+</tr>
+<tr>
+<td>Dynamic (commission + token + infra + uncertain)</td>
+<td style="text-align: right;">40.01</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>240.01</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="report-figure-grid report-figure-grid-2">
+<figure class="report-figure report-figure-compact">
+  <img class="report-chart report-chart-compact" src="charts/cost_pie.png" alt="Figure 3: Operating Cost Composition" />
+  <figcaption>Figure 3. Operating Cost Composition</figcaption>
+</figure>
+<figure class="report-figure report-figure-compact">
+  <img class="report-chart report-chart-compact" src="charts/cost_pie_no_monthly.png" alt="Figure 4: Operating Cost Composition (Excl. Data Subscription)" />
+  <figcaption>Figure 4. Operating Cost Composition (Excl. Data Subscription)</figcaption>
+</figure>
+</div>
+
+<h2 id="5-portfolio-timeline">5. Portfolio Timeline</h2>
+<h3 id="figure-5-portfolio-value-vs-cumulative-dynamic-cost">Figure 5. Portfolio Value vs Cumulative Dynamic Cost</h3>
+<p><img class="report-chart" alt="Figure 5: Portfolio Value vs Cumulative Dynamic Cost" src="charts/performance_line.png"></p>
+<h3 id="figure-6-portfolio-value-vs-dynamic-cost-excl-subscription">Figure 6. Portfolio Value vs Dynamic Cost (Excl. Subscription)</h3>
+<p><img class="report-chart" alt="Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)" src="charts/performance_line_no_monthly.png"></p>
+<h2 id="6-execution-quality">6. Execution Quality</h2>
+<p>Opportunity Cost (Decision Price - Execution Price)
+3982.68</p>
+<p>Average Latency per Trade
+25337.50 ms</p>
+<p>Average Daily LLM Latency
+49921.66 ms</p>
+<p>Average Daily Input Tokens
+67980.20</p>
+<p>Average Daily Output Tokens
+2383.27</p>
+<h2 id="7-net-economic-outcome">7. Net Economic Outcome</h2>
+<p>Daily actions and detailed cost lines: see <code>gpt-5.2-500000-daily-action.txt</code>.</p>
+<h3 id="71-portfolio-level-gross-profit-vs-total-cost">7.1 Portfolio level — gross profit vs total cost</h3>
+<p>Uses profit-breakdown <strong>total profit</strong> (v_end − v₀), i.e. market + selection + timing.</p>
+<table>
+<thead>
+<tr>
+<th>Line item</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross profit (attribution total)</td>
+<td style="text-align: right;">2,022.49</td>
+</tr>
+<tr>
+<td>Return / profit (portfolio replay)</td>
+<td style="text-align: right;">2,022.49</td>
+</tr>
+<tr>
+<td>Static cost</td>
+<td style="text-align: right;">-200.00</td>
+</tr>
+<tr>
+<td>Dynamic cost</td>
+<td style="text-align: right;">-40.01</td>
+</tr>
+<tr>
+<td>Total cost</td>
+<td style="text-align: right;">-240.01</td>
+</tr>
+<tr>
+<td><strong>Net outcome (gross − total cost)</strong></td>
+<td style="text-align: right;"><strong>1,782.48</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-execution-layer-timing-effect-vs-dynamic-cost">7.2 Execution layer — timing effect vs dynamic cost</h3>
+<p>Isolates <strong>timing</strong> (actual strategy vs buy&amp;hold) against costs that scale with trading/decisions.</p>
+<table>
+<thead>
+<tr>
+<th>Line item</th>
+<th style="text-align: right;">Amount (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Market effect (context)</td>
+<td style="text-align: right;">8,599.53</td>
+</tr>
+<tr>
+<td>Asset selection effect (context)</td>
+<td style="text-align: right;">-914.23</td>
+</tr>
+<tr>
+<td>Timing effect</td>
+<td style="text-align: right;">-5,662.80</td>
+</tr>
+<tr>
+<td>Dynamic cost</td>
+<td style="text-align: right;">-40.01</td>
+</tr>
+<tr>
+<td><strong>Net timing outcome (timing − dynamic cost)</strong></td>
+<td style="text-align: right;"><strong>-5,702.82</strong></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

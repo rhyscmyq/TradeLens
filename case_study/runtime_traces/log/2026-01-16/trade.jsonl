@@ -1,0 +1,2 @@
+{"trade": {"decision_type": "SELL", "ticker": "NVDA", "analysis_price": 187.05, "execution_price": 189.075, "quantity": 63, "timestamp": {"analysis_time": "2026-01-31T09:14:06.117Z", "decision_time": "2026-01-31T09:14:31.432Z"}}}
+{"trade": {"decision_type": "BUY", "ticker": "AVGO", "analysis_price": 343.02, "execution_price": 346.265, "quantity": 44, "timestamp": {"analysis_time": "2026-01-31T09:14:06.117Z", "decision_time": "2026-01-31T09:14:32.737Z"}}}

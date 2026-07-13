@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>gpt-5.2-500000-daily-llm-analysis.md</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      max-width: 980px;
+      margin: 32px auto;
+      padding: 0 22px 40px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 {
+      line-height: 1.25;
+    }
+    h2 {
+      margin-top: 1.8em;
+      padding-top: 0.2em;
+      border-top: 1px solid #e8e8e8;
+    }
+    h3 {
+      margin-top: 1.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0 18px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    blockquote {
+      margin: 16px 0;
+      padding: 10px 14px;
+      border-left: 4px solid #89a7d8;
+      background: rgba(137, 167, 216, 0.08);
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      padding: 12px;
+      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 12px 0 26px;
+      align-items: start;
+    }
+    .chart-grid.compact {
+      justify-items: center;
+    }
+    .chart-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 12px 0 26px;
+    }
+    .chart-item {
+      margin: 0;
+      text-align: center;
+    }
+    .chart-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .chart-grid.compact .chart-item {
+      max-width: 280px;
+      width: 100%;
+    }
+    .chart-item figcaption {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #555;
+    }
+    @media (max-width: 760px) {
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-grid.compact .chart-item {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1 id="llm-analysis">LLM Analysis</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<ul>
+<li>The run ended with <strong>$502,022.49</strong> on <strong>$500,000</strong> initial capital, a <strong>$2,022.49 gross profit / 0.40% total return</strong>, but underperformed SPY’s <strong>1.72%</strong> benchmark return by <strong>1.32 percentage points</strong>.</li>
+<li>Cost-adjusted economics were positive in absolute terms: <strong>$1,782.48 net outcome</strong> after <strong>$240.01</strong> of operating cost. However, this is not evidence of alpha because the result was driven by market exposure, not trading skill.</li>
+<li>Attribution is weak: <strong>market effect was +$8,599.53</strong>, while <strong>asset selection was -$914.23</strong> and <strong>timing was -$5,662.80</strong>. The strategy would have done better by buying and holding its initial portfolio.</li>
+<li>The main performance problem is not explicit transaction cost; it is <strong>negative timing / portfolio adjustment value</strong>, compounded by high decision overhead: <strong>49.9 seconds average daily LLM latency</strong>, <strong>67,980 input tokens/day</strong>, and <strong>$3,982.68 opportunity cost</strong>.</li>
+<li>The system appears over-engineered for the realized trading edge: only <strong>5 active trade days</strong>, <strong>72% hold ratio</strong>, and <strong>$40.01 dynamic cost</strong>, yet trading decisions destroyed more value than they created.</li>
+</ul>
+<h2 id="part-1-trading-performance-analysis">Part 1. Trading Performance Analysis</h2>
+<h3 id="11-outcome-snapshot">1.1 Outcome Snapshot</h3>
+<ul>
+<li>The portfolio finished at <strong>$502,022.49</strong>, generating <strong>$2,022.49 gross profit</strong> on <strong>$500,000</strong> of starting capital, or a <strong>0.40% total return</strong> over 2025-12-01 to 2026-01-30.</li>
+<li>After <strong>$200.00 static cost</strong> and <strong>$40.01 dynamic cost</strong>, the run produced a <strong>$1,782.48 net economic outcome</strong>.</li>
+<li>The absolute net result is positive, but the quality of the return is poor:</li>
+<li>SPY returned <strong>1.72%</strong>, while the strategy returned <strong>0.40%</strong>.</li>
+<li>Excess return versus benchmark was <strong>-1.32%</strong>.</li>
+<li>Sharpe ratio was <strong>-0.02</strong>, with <strong>15.28% annualized volatility</strong> and <strong>5.39% max drawdown</strong>.</li>
+<li>Therefore, the run created <strong>small positive absolute economic value after explicit costs</strong>, but did <strong>not</strong> create convincing risk-adjusted or benchmark-relative value.</li>
+</ul>
+<h3 id="12-profit-attribution-analysis">1.2 Profit Attribution Analysis</h3>
+<ul>
+<li><strong>Figure 1: Profit Attribution — Full Cash Benchmark</strong> shows the core attribution:</li>
+</ul>
+<div class="chart-grid"><figure class="chart-item"><img src="charts/profit_breakdown_full.png" alt="Figure 1: Profit Attribution — Full Cash Benchmark" /><figcaption>Figure 1: Profit Attribution — Full Cash Benchmark</figcaption></figure><figure class="chart-item"><img src="charts/profit_breakdown_invested.png" alt="Figure 2: Profit Attribution — Invested Cash Only" /><figcaption>Figure 2: Profit Attribution — Invested Cash Only</figcaption></figure></div>
+
+<ul>
+<li><strong>Market effect:</strong> <strong>+$8,599.53</strong></li>
+<li><strong>Asset selection effect:</strong> <strong>-$914.23</strong></li>
+<li><strong>Timing effect:</strong> <strong>-$5,662.80</strong></li>
+<li><strong>Total gross profit:</strong> <strong>+$2,022.49</strong></li>
+<li>The market did the heavy lifting. A SPY-equivalent full-cash benchmark would have grown the portfolio to <strong>$508,599.53</strong>, versus the strategy’s <strong>$502,022.49</strong>.</li>
+<li>Asset selection was mildly negative. The initial buy-and-hold technology basket ended at <strong>$507,685.30</strong>, which lagged the SPY benchmark but still materially exceeded the final strategy value.</li>
+<li>Timing was the largest controllable drag. The strategy lost <strong>$5,662.80</strong> relative to simply holding the initial post-build portfolio.</li>
+<li><strong>Figure 2: Profit Attribution — Invested Cash Only</strong> makes the same point after adjusting the market comparison for deployed capital:</li>
+<li>Market effect falls from <strong>+$8,599.53</strong> to <strong>+$8,130.57</strong>.</li>
+<li>Selection effect improves from <strong>-$914.23</strong> to <strong>-$445.27</strong>.</li>
+<li>Timing remains <strong>-$5,662.80</strong>.</li>
+<li>The strategy did <strong>not</strong> outperform buy-and-hold because of timing or selection. It underperformed due primarily to <strong>negative timing</strong>, with a smaller negative contribution from asset selection.</li>
+</ul>
+<h3 id="13-cost-structure-analysis">1.3 Cost Structure Analysis</h3>
+<ul>
+<li><strong>Figure 3: Operating Cost Composition</strong> supports the conclusion that explicit operating cost was not the dominant loss driver.</li>
+<li>Total cost was <strong>$240.01</strong>, equal to <strong>11.87% of gross profit</strong>.</li>
+<li>Static cost was <strong>$200.00</strong>, or <strong>83.33%</strong> of total cost.</li>
+<li>Dynamic cost was <strong>$40.01</strong>, or <strong>16.67%</strong> of total cost.</li>
+<li>Static cost dominates the cost stack. At the current profit level, a <strong>$200 subscription cost</strong> is meaningful because gross profit was only <strong>$2,022.49</strong>.</li>
+<li><strong>Figure 4: Operating Cost Composition (Excl. Data Subscription)</strong> isolates dynamic cost. The dynamic burden was small in dollars, but it should be interpreted against timing value:</li>
+<li>Dynamic cost was only <strong>$40.01</strong>.</li>
+<li>Timing effect was <strong>-$5,662.80</strong>.</li>
+<li>Net timing outcome after dynamic cost was <strong>-$5,702.82</strong>.</li>
+<li>The current cost structure is acceptable only if the strategy can preserve market gains or generate timing alpha. At this profit level, explicit cost is manageable, but the system’s decisions do not justify even modest operational complexity.</li>
+<li>The most actionable cost driver depends on the objective:</li>
+<li>For portfolio-level economics, the <strong>static subscription cost</strong> is the largest explicit cost lever.</li>
+<li>For trading-system improvement, the more important “cost” is <strong>decision-induced timing loss</strong>, not commissions or tokens.</li>
+</ul>
+<h3 id="14-portfolio-timeline-and-risk-signals">1.4 Portfolio Timeline and Risk Signals</h3>
+<ul>
+<li><strong>Figure 5: Portfolio Value vs Cumulative Dynamic Cost</strong> frames the portfolio path against accumulated dynamic cost. Given the reported endpoint, cumulative dynamic cost reached only <strong>$40.01</strong>, while portfolio value finished <strong>$2,022.49</strong> above starting capital.</li>
+</ul>
+<div class="chart-stack"><figure class="chart-item"><img src="charts/performance_line.png" alt="Figure 5: Portfolio Value vs Cumulative Dynamic Cost" /><figcaption>Figure 5: Portfolio Value vs Cumulative Dynamic Cost</figcaption></figure><figure class="chart-item"><img src="charts/performance_line_no_monthly.png" alt="Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)" /><figcaption>Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)</figcaption></figure></div>
+
+<ul>
+<li><strong>Figure 6: Portfolio Value vs Dynamic Cost (Excl. Subscription)</strong> reinforces that dynamic operating cost was too small to explain the performance gap. The major path dependency came from market exposure and trade timing, not from explicit per-trade cost.</li>
+<li>Profitability is fragile:</li>
+<li>Gross profit was only <strong>0.40%</strong> of starting capital.</li>
+<li>Max drawdown was <strong>5.39%</strong>, far larger than the final gain.</li>
+<li>The portfolio underperformed SPY by <strong>1.32 percentage points</strong>.</li>
+<li>The timing effect was <strong>-$5,662.80</strong>, nearly <strong>2.8x</strong> the final gross profit.</li>
+<li>The cumulative-cost line is not the main risk signal. The risk signal is that modest gains survived despite poor timing only because the market effect was positive.</li>
+</ul>
+<h3 id="15-execution-quality-and-llm-efficiency">1.5 Execution Quality and LLM Efficiency</h3>
+<ul>
+<li>Execution quality was weak relative to the scale of realized alpha:</li>
+<li>Opportunity cost was <strong>$3,982.68</strong>.</li>
+<li>Average latency per trade was <strong>25,337.50 ms</strong>.</li>
+<li>Average daily LLM latency was <strong>49,921.66 ms</strong>.</li>
+<li>Average daily input tokens were <strong>67,980.20</strong> and output tokens were <strong>2,383.27</strong>.</li>
+<li>Trade efficiency was low:</li>
+<li>The experiment logged <strong>50 trades</strong>.</li>
+<li>Active trade days were only <strong>5</strong>, or <strong>12.20%</strong> of total days.</li>
+<li>Hold ratio was <strong>72.00%</strong>.</li>
+<li>Turnover was <strong>1.13x</strong> average portfolio value.</li>
+<li>Market exposure helped the portfolio: the <strong>+$8,599.53 market effect</strong> was the only major positive attribution component.</li>
+<li>System design hurt the portfolio: the <strong>-$5,662.80 timing effect</strong>, <strong>$3,982.68 opportunity cost</strong>, and high latency/token footprint indicate that the agent workflow consumed substantial resources without improving trade outcomes.</li>
+<li>The evidence does not show that LLM reasoning intensity translated into better decisions. The system processed high daily token volume while producing a mostly-hold policy and negative timing value.</li>
+</ul>
+<h2 id="part-2-trading-system-diagnosis">Part 2. Trading System Diagnosis</h2>
+<h3 id="21-system-diagnosis">2.1 System Diagnosis</h3>
+<p>The current system is mainly limited by <strong>trading cadence / portfolio adjustment quality and workflow design</strong>, not by explicit trading cost.</p>
+<ul>
+<li><strong>Model quality may be an issue</strong>, but the supplied evidence only covers one model, <strong>gpt-5.2</strong>, so there is no direct cross-model comparison.</li>
+<li><strong>Portfolio construction was acceptable but not strong</strong>: the selected technology basket lagged SPY by <strong>$914.23</strong> on the full-cash view and <strong>$445.27</strong> on the invested-only view.</li>
+<li><strong>Trading cadence was actively harmful</strong>: timing destroyed <strong>$5,662.80</strong> versus initial buy-and-hold.</li>
+<li><strong>Execution overhead was high relative to edge</strong>: daily LLM latency near <strong>50 seconds</strong>, average trade latency above <strong>25 seconds</strong>, and opportunity cost of <strong>$3,982.68</strong> are difficult to justify when gross profit was only <strong>$2,022.49</strong>.</li>
+<li><strong>Explicit costs were secondary</strong>: total cost was <strong>$240.01</strong>, much smaller than the timing loss and opportunity cost.</li>
+</ul>
+<h3 id="22-root-causes">2.2 Root Causes</h3>
+<ul>
+<li><strong>Negative timing decisions</strong></li>
+<li>Evidence: timing effect was <strong>-$5,662.80</strong>, and net timing outcome after dynamic cost was <strong>-$5,702.82</strong>.</li>
+<li>
+<p>Interpretation: rebalancing or trade timing reduced value versus simply holding the initial portfolio.</p>
+</li>
+<li>
+<p><strong>Weak benchmark-relative asset selection</strong></p>
+</li>
+<li>Evidence: asset selection effect was <strong>-$914.23</strong> in Figure 1 and <strong>-$445.27</strong> in Figure 2.</li>
+<li>
+<p>Interpretation: the initial asset basket was not the main failure, but it did not outperform the market benchmark.</p>
+</li>
+<li>
+<p><strong>High workflow overhead without demonstrated incremental value</strong></p>
+</li>
+<li>Evidence: <strong>67,980.20 input tokens/day</strong>, <strong>49,921.66 ms average daily LLM latency</strong>, and <strong>25,337.50 ms average latency per trade</strong>.</li>
+<li>
+<p>Interpretation: the system is computationally heavy relative to a strategy that mostly holds and underperforms passive exposure.</p>
+</li>
+<li>
+<p><strong>Opportunity cost materially exceeded dynamic cost</strong></p>
+</li>
+<li>Evidence: opportunity cost was <strong>$3,982.68</strong>, while dynamic cost was only <strong>$40.01</strong>.</li>
+<li>
+<p>Interpretation: execution delay or price movement between decision and execution mattered more than commissions/tokens/infra.</p>
+</li>
+<li>
+<p><strong>Capital scale is marginal for the fixed-cost structure</strong></p>
+</li>
+<li>Evidence: static cost was <strong>$200.00</strong>, or <strong>83.33%</strong> of total cost and <strong>9.89%</strong> of gross profit.</li>
+<li>Interpretation: the fixed subscription cost is not fatal at $500,000 capital, but it is meaningful given only <strong>$2,022.49</strong> gross profit.</li>
+</ul>
+<h3 id="23-top-recommended-actions">2.3 Top Recommended Actions</h3>
+<ol>
+<li><strong>Reduce or gate trading frequency unless the model has a clear expected-value signal.</strong></li>
+<li><strong>Lever:</strong> trading frequency; system / agent / tool architecture.</li>
+<li><strong>Expected impact:</strong> should directly reduce negative timing exposure, opportunity cost, and unnecessary turnover.</li>
+<li>
+<p><strong>Implementation idea:</strong> require trades to pass a threshold based on expected excess return, confidence, and estimated execution cost. Default to hold unless the expected timing benefit exceeds a hurdle tied to observed timing drag and opportunity cost.</p>
+</li>
+<li>
+<p><strong>Add a buy-and-hold / benchmark-aware portfolio construction layer.</strong></p>
+</li>
+<li><strong>Lever:</strong> system / agent / tool architecture; model choice.</li>
+<li><strong>Expected impact:</strong> should prevent the agent from making trades that degrade performance versus the initial portfolio or SPY-like exposure.</li>
+<li>
+<p><strong>Implementation idea:</strong> before execution, compare the proposed action against three baselines: current holdings, initial buy-and-hold basket, and SPY proxy. Block or downsize trades that do not improve expected risk-adjusted return versus these baselines.</p>
+</li>
+<li>
+<p><strong>Simplify the LLM workflow and test alternative model configurations.</strong></p>
+</li>
+<li><strong>Lever:</strong> model choice; system / agent / tool architecture.</li>
+<li><strong>Expected impact:</strong> should reduce latency, token intensity, and opportunity cost; may improve consistency if a smaller/faster model performs equivalently on mostly-hold decisions.</li>
+<li><strong>Implementation idea:</strong> benchmark gpt-5.2 against cheaper/faster models or a two-stage architecture: lightweight daily screener first, full LLM reasoning only when a trade candidate passes quantitative filters.</li>
+</ol>
+<h3 id="24-quick-wins-vs-structural-changes">2.4 Quick Wins vs Structural Changes</h3>
+<h4 id="quick-wins">Quick Wins</h4>
+<ul>
+<li>Add a <strong>no-trade hurdle</strong>: do not trade unless expected benefit exceeds estimated opportunity cost and dynamic cost.</li>
+<li>Cap daily context size to reduce the <strong>67,980 input tokens/day</strong> footprint unless additional context demonstrably improves decisions.</li>
+<li>Introduce a <strong>cooldown rule</strong> after trades to reduce over-adjustment and protect against negative timing.</li>
+<li>Track decision-to-execution slippage daily, since reported opportunity cost of <strong>$3,982.68</strong> is economically significant.</li>
+</ul>
+<h4 id="structural-changes">Structural Changes</h4>
+<ul>
+<li>Build a <strong>benchmark-aware decision layer</strong> that explicitly compares the proposed portfolio to SPY, initial buy-and-hold, and current holdings.</li>
+<li>Move from a single-agent daily reasoning loop to a <strong>tiered architecture</strong>: quantitative signal filter, risk/portfolio optimizer, then LLM explanation or exception handling.</li>
+<li>Run controlled <strong>model-choice experiments</strong> across models and prompt architectures; current evidence is insufficient to attribute failure specifically to gpt-5.2.</li>
+<li>Reassess <strong>starting capital versus fixed costs</strong> if deploying below $500,000; the static cost burden becomes more punitive as capital or gross profit declines.</li>
+</ul>
+<h2 id="appendix-key-metrics-snapshot">Appendix. Key Metrics Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trading period</td>
+<td style="text-align: right;">2025-12-01 to 2026-01-30</td>
+<td>Defines the evaluation window.</td>
+</tr>
+<tr>
+<td>Strategy / model</td>
+<td style="text-align: right;">gpt-5.2</td>
+<td>Only one model is observed, limiting model-quality conclusions.</td>
+</tr>
+<tr>
+<td>Initial capital</td>
+<td style="text-align: right;">$500,000.00</td>
+<td>Scale for return and cost interpretation.</td>
+</tr>
+<tr>
+<td>Final portfolio value</td>
+<td style="text-align: right;">$502,022.49</td>
+<td>Ending wealth before explicit operating cost deduction.</td>
+</tr>
+<tr>
+<td>Gross profit</td>
+<td style="text-align: right;">$2,022.49</td>
+<td>Absolute trading gain before costs.</td>
+</tr>
+<tr>
+<td>Total return</td>
+<td style="text-align: right;">0.40%</td>
+<td>Low absolute return over the period.</td>
+</tr>
+<tr>
+<td>SPY benchmark return</td>
+<td style="text-align: right;">1.72%</td>
+<td>Passive market comparator.</td>
+</tr>
+<tr>
+<td>Excess return vs benchmark</td>
+<td style="text-align: right;">-1.32%</td>
+<td>Shows benchmark-relative underperformance.</td>
+</tr>
+<tr>
+<td>Market effect</td>
+<td style="text-align: right;">$8,599.53</td>
+<td>Main positive attribution driver.</td>
+</tr>
+<tr>
+<td>Asset selection effect</td>
+<td style="text-align: right;">-$914.23</td>
+<td>Indicates selected assets lagged benchmark exposure.</td>
+</tr>
+<tr>
+<td>Timing effect</td>
+<td style="text-align: right;">-$5,662.80</td>
+<td>Main controllable performance drag.</td>
+</tr>
+<tr>
+<td>Static cost</td>
+<td style="text-align: right;">$200.00</td>
+<td>Largest explicit cost bucket.</td>
+</tr>
+<tr>
+<td>Dynamic cost</td>
+<td style="text-align: right;">$40.01</td>
+<td>Small direct trading/LLM/infra cost burden.</td>
+</tr>
+<tr>
+<td>Total cost</td>
+<td style="text-align: right;">$240.01</td>
+<td>Reduces gross profit by 11.87%.</td>
+</tr>
+<tr>
+<td>Net economic outcome</td>
+<td style="text-align: right;">$1,782.48</td>
+<td>Positive absolute result after explicit costs.</td>
+</tr>
+<tr>
+<td>Net timing outcome</td>
+<td style="text-align: right;">-$5,702.82</td>
+<td>Trading decisions destroyed value after dynamic cost.</td>
+</tr>
+<tr>
+<td>Cost-to-gross-profit ratio</td>
+<td style="text-align: right;">11.87%</td>
+<td>Measures operating-cost burden versus realized profit.</td>
+</tr>
+<tr>
+<td>Opportunity cost</td>
+<td style="text-align: right;">$3,982.68</td>
+<td>Execution-delay or price-movement cost; larger than gross net benefit.</td>
+</tr>
+<tr>
+<td>Average latency per trade</td>
+<td style="text-align: right;">25,337.50 ms</td>
+<td>Execution responsiveness issue.</td>
+</tr>
+<tr>
+<td>Average daily LLM latency</td>
+<td style="text-align: right;">49,921.66 ms</td>
+<td>Workflow overhead indicator.</td>
+</tr>
+<tr>
+<td>Average daily input tokens</td>
+<td style="text-align: right;">67,980.20</td>
+<td>Token intensity of the decision process.</td>
+</tr>
+<tr>
+<td>Average daily output tokens</td>
+<td style="text-align: right;">2,383.27</td>
+<td>Output verbosity / generation load.</td>
+</tr>
+<tr>
+<td>Active trade days</td>
+<td style="text-align: right;">5</td>
+<td>Trading activity was sparse.</td>
+</tr>
+<tr>
+<td>Trade frequency</td>
+<td style="text-align: right;">12.20%</td>
+<td>Most days did not involve active trading.</td>
+</tr>
+<tr>
+<td>Hold ratio</td>
+<td style="text-align: right;">72.00%</td>
+<td>Strategy mostly held positions despite high reasoning overhead.</td>
+</tr>
+<tr>
+<td>Turnover</td>
+<td style="text-align: right;">1.13x</td>
+<td>Meaningful portfolio churn relative to weak timing outcome.</td>
+</tr>
+<tr>
+<td>Sharpe ratio</td>
+<td style="text-align: right;">-0.02</td>
+<td>Poor risk-adjusted performance.</td>
+</tr>
+<tr>
+<td>Annualized volatility</td>
+<td style="text-align: right;">15.28%</td>
+<td>Risk level relative to small return.</td>
+</tr>
+<tr>
+<td>Max drawdown</td>
+<td style="text-align: right;">5.39%</td>
+<td>Loss path was much larger than final gain.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

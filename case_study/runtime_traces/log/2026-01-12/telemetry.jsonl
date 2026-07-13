@@ -1,0 +1,16 @@
+{"llm": {"model": "gpt-5.2", "input_tokens": 1684, "output_tokens": 239, "cached_tokens": 0, "latency_ms": 2883}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2517, "output_tokens": 134, "cached_tokens": 0, "latency_ms": 1615}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2702, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1267}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2742, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1259}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2782, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1171}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2822, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1202}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2862, "output_tokens": 30, "cached_tokens": 2560, "latency_ms": 1132}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2908, "output_tokens": 33, "cached_tokens": 0, "latency_ms": 1213}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2954, "output_tokens": 134, "cached_tokens": 2816, "latency_ms": 1837}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3136, "output_tokens": 27, "cached_tokens": 2688, "latency_ms": 1311}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3176, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1168}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3216, "output_tokens": 27, "cached_tokens": 2688, "latency_ms": 1215}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3256, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1225}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3296, "output_tokens": 27, "cached_tokens": 3072, "latency_ms": 1191}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3336, "output_tokens": 460, "cached_tokens": 3200, "latency_ms": 7151}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 43389, "output_tokens": 1273, "cached_tokens": 17024, "latency_ms": 28800}, "tool_calls": []}

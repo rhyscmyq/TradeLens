@@ -1,0 +1,16 @@
+{
+  "structure": {
+    "llm_model": "gpt-5.2",
+    "decision_frequency": "daily",
+    "start_time": "2025-12-01",
+    "end_time": "2026-01-30",
+    "initial_cash": 500000,
+    "agent_config": {
+      "agent_count": 1
+    }
+  },
+  "data_subscription_monthly": 100.0
+}
+
+
+// 命名规则： static-<llm_model>-<initial_cash>-<decision_frequency>-<start_time>-<end_time>.jsonl

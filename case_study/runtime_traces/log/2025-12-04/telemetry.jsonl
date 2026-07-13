@@ -1,0 +1,12 @@
+{"llm": {"model": "gpt-5.2", "input_tokens": 1684, "output_tokens": 229, "cached_tokens": 0, "latency_ms": 2728}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2401, "output_tokens": 134, "cached_tokens": 0, "latency_ms": 1841}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2583, "output_tokens": 89, "cached_tokens": 0, "latency_ms": 1464}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2702, "output_tokens": 66, "cached_tokens": 0, "latency_ms": 1350}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2792, "output_tokens": 27, "cached_tokens": 1792, "latency_ms": 1159}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 2835, "output_tokens": 219, "cached_tokens": 0, "latency_ms": 2297}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3730, "output_tokens": 134, "cached_tokens": 2944, "latency_ms": 2260}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 3918, "output_tokens": 95, "cached_tokens": 0, "latency_ms": 1700}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 4046, "output_tokens": 72, "cached_tokens": 0, "latency_ms": 1649}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 4142, "output_tokens": 27, "cached_tokens": 0, "latency_ms": 1294}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 4185, "output_tokens": 676, "cached_tokens": 0, "latency_ms": 7513}, "tool_calls": []}
+{"llm": {"model": "gpt-5.2", "input_tokens": 35018, "output_tokens": 1768, "cached_tokens": 4736, "latency_ms": 27146}, "tool_calls": []}
